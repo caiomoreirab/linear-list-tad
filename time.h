@@ -7,47 +7,42 @@
 * Professor: Anselmo Cardoso de Paiva
 * Data: Fevereiro/2025
 *******************************************************/
-
-
 #ifndef TIME_H
 #define TIME_H
 
-#include <stdlib.h>
-
-// Constantes para representar valores lógicos
 #define TRUE 1
 #define FALSE 0
 
-// Estrutura para o TAD Time
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+
+// Definição da estrutura que armazena informações dos times
 typedef struct {
+    char nome[30];
+    int anoFundacao;
+    float numTorcedores;
+} timeInfo;
+
+// Definição da estrutura de um nó da lista encadeada
+typedef struct Time {
     void* data;
     struct Time* next;
 } Time;
 
+// Definição da estrutura da lista encadeada
 typedef struct {
-    Time* first;  // Ponteiro para o primeiro nó
+    Time* first;
 } TimeList;
 
-
-// Função para criar o TAD Genérico
+// Protótipos das funções do TAD
 TimeList *timeCreate();
-
-// Função para destruir o TAD
+int tadInsert(TimeList *l, void *data);
+void *tadQuery(TimeList *l, void *data, int (*cmp)(void *, void *));
+int tadRemove(TimeList *l, void *data, int (*cmp)(void *, void *));
+void **tadList(TimeList *l);
+int esvaziaTad(TimeList *l);
 int tadDestroy(TimeList *l);
 
-// Função para inserir um item no TAD
-int tadInsert(TimeList *l, void *data);
-
-// Função para consultar se o item está no TAD
-void *tadQuery(TimeList *l, void *data, int (*cmp)(void *, void *));
-
-// Função para remover um item do TAD
-int tadRemove(TimeList *l, void *data, int (*cmp)(void *, void *));
-
-// Função para listar os elementos na coleção
-void **tadList(TimeList* l);
-
-// Função para esvaziar a coleção
-int esvaziaTad(TimeList *l);
-
-#endif // TIME_H
+#endif

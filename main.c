@@ -7,11 +7,6 @@
 #define TRUE 1
 #define FALSE 0
 
-typedef struct {
-    char nome[30];
-    int anoFundacao;
-    float numTorcedores;
-} timeInfo;
 
 int cmp(void *a, void *b) {
     timeInfo *timeA = (timeInfo *)a;
@@ -67,7 +62,7 @@ int main() {
                     break;
                 }
                 printf("Digite o nome do time: ");
-                scanf(" %[^]", novoTime->nome);
+                scanf(" %[^\n]", novoTime->nome);
                 printf("Digite o ano de fundacao: ");
                 scanf("%d", &novoTime->anoFundacao);
                 printf("Digite o numero de torcedores: ");
@@ -111,7 +106,7 @@ int main() {
                 } else {
                     timeInfo busca;
                     printf("Digite o nome do time: ");
-                    scanf(" %[^]", busca.nome);
+                    scanf(" %[^\n]", busca.nome);
                     printf("Digite o ano de fundacao: ");
                     scanf("%d", &busca.anoFundacao);
                     printf("Digite o numero de torcedores: ");
@@ -133,7 +128,7 @@ int main() {
                 } else {
                     timeInfo remove;
                     printf("Digite o nome do time: ");
-                    scanf(" %[^]", remove.nome);
+                    scanf(" %[^\n]", remove.nome);
                     printf("Digite o ano de fundacao: ");
                     scanf("%d", &remove.anoFundacao);
                     printf("Digite o numero de torcedores: ");
